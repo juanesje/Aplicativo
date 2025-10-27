@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión - Wireless Cooking</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Inicia sesión en Wireless Cooking y accede a tu cuenta para gestionar tus compras de utensilios y artesanías locales.">
+  <meta name="keywords" content="login, iniciar sesión, Wireless Cooking, artesanías, utensilios, Cajicá, cocina artesanal">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://wirelesscooking.com/login.html">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+    }
+    .login-form {
+      animation: fadeIn 0.5s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+  <!-- ✅ Navbar del sitio -->
+  <custom-navbar></custom-navbar>
+
+  <!-- Contenedor principal -->
+  <main class="min-h-screen flex items-center justify-center px-4 py-12">
+    <div class="w-full max-w-md p-8 rounded-lg shadow-lg bg-white border border-gray-100 login-form">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-gray-800">Iniciar Sesión</h2>
+        <p class="text-gray-600 mt-2">Accede a tu cuenta Wireless Cooking</p>
+      </div>
+
+      <!-- Formulario -->
+      <form id="loginForm" class="space-y-6">
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i data-feather="mail" class="text-gray-400"></i>
+            </div>
+            <input id="email" type="email" name="email" placeholder="tucorreo@ejemplo.com" autocomplete="email" required
+              class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+          </div>
+          <p id="email-error" class="mt-1 text-sm text-red-600 hidden">Por favor ingresa tu correo electrónico</p>
+        </div>
+
+        <!-- Contraseña -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i data-feather="lock" class="text-gray-400"></i>
+            </div>
+            <input id="password" type="password" name="password" placeholder="••••••••" autocomplete="current-password" required
+              class="pl-10 w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500">
+            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+              <i data-feather="eye" class="text-gray-400 hover:text-gray-600 cursor-pointer"></i>
+            </button>
+          </div>
+          <p id="password-error" class="mt-1 text-sm text-red-600 hidden">Por favor ingresa tu contraseña</p>
+        </div>
+
+        <!-- Recordarme y Olvidar -->
+        <div class="flex items-center justify-between">
+          <label class="flex items-center text-sm text-gray-700">
+            <input id="remember-me" type="checkbox" class="h-4 w-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500">
+            <span class="ml-2">Recordarme</span>
+          </label>
+          <a href="#" class="text-sm font-medium text-amber-600 hover:text-amber-500">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Botón -->
+        <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition duration-150">
+          Iniciar Sesión
+        </button>
+
+        <!-- Mensaje de éxito -->
+        <div id="success-message" class="hidden mt-4 p-4 bg-green-50 border border-green-200 rounded-md">
+          <div class="flex items-center">
+            <i data-feather="check-circle" class="text-green-500 mr-2"></i>
+            <p class="text-green-800">¡Inicio de sesión exitoso! Redirigiendo...</p>
+          </div>
+        </div>
+      </form>
+
+      <!-- Enlace de registro -->
+      <div class="mt-6 text-center text-sm text-gray-600">
+        ¿No tienes cuenta?
+        <a href="register.html" class="font-medium text-amber-600 hover:text-amber-500">Regístrate aquí</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ✅ Footer del sitio -->
+  <custom-footer></custom-footer>
+
+  <!-- Scripts -->
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      feather.replace();
+
+      const togglePassword = document.getElementById('togglePassword');
+      const passwordInput = document.getElementById('password');
+      const eyeIcon = togglePassword.querySelector('i');
+
+      togglePassword.addEventListener('click', () => {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        eyeIcon.setAttribute('data-feather', type === 'password' ? 'eye' : 'eye-off');
+        feather.replace();
+      });
+
+      const loginForm = document.getElementById('loginForm');
+      const emailError = document.getElementById('email-error');
+      const passwordError = document.getElementById('password-error');
+      const successMessage = document.getElementById('success-message');
+
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        emailError.classList.add('hidden');
+        passwordError.classList.add('hidden');
+        successMessage.classList.add('hidden');
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        let valid = true;
+
+        if (!email) {
+          emailError.classList.remove('hidden');
+          valid = false;
+        }
+        if (!password) {
+          passwordError.classList.remove('hidden');
+          valid = false;
+        }
+
+        if (valid) {
+          console.log('Inicio de sesión con:', { email, password });
+
+          // Simulación de autenticación
+          successMessage.classList.remove('hidden');
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

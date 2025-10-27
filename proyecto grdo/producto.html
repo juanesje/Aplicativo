@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wireless Cooking - Detalle del producto</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Compra utensilios y productos artesanales hechos a mano en Cajicá. Descubre el detalle de cada creación única en Wireless Cooking.">
+  <meta name="keywords" content="Wireless Cooking, artesanías, cerámica, utensilios de cocina, Cajicá, hecho a mano, producto artesanal">
+  <meta name="robots" content="index, follow">
+
+  <!-- Redes sociales -->
+  <meta property="og:title" content="Wireless Cooking - Detalle del producto">
+  <meta property="og:description" content="Descubre nuestros productos artesanales hechos a mano por artesanos locales de Cajicá.">
+  <meta property="og:type" content="product">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1544989164-31dc3c645987?q=80&w=1200">
+  <meta property="og:url" content="https://wirelesscooking.com/producto.html">
+
+  <link rel="canonical" href="https://wirelesscooking.com/producto.html">
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800">
+  <!-- ✅ Navbar igual que en el index -->
+  <custom-navbar></custom-navbar>
+
+  <!-- Contenido del producto -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col lg:flex-row gap-12">
+      <!-- Imagen principal -->
+      <div class="lg:w-1/2">
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden mb-4">
+          <img id="mainImage" src="https://images.unsplash.com/photo-1544989164-31dc3c645987?q=80&w=800" alt="Producto artesanal" class="w-full h-auto object-cover">
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <img src="https://images.unsplash.com/photo-1523510464290-340e8a62a8df?q=80&w=400" alt="Vista 1" class="cursor-pointer rounded-lg border hover:border-amber-500" onclick="changeMainImage(this)">
+          <img src="https://images.unsplash.com/photo-1541443131876-b9c8f41650b9?q=80&w=400" alt="Vista 2" class="cursor-pointer rounded-lg border hover:border-amber-500" onclick="changeMainImage(this)">
+          <img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=400" alt="Vista 3" class="cursor-pointer rounded-lg border hover:border-amber-500" onclick="changeMainImage(this)">
+          <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?q=80&w=400" alt="Vista 4" class="cursor-pointer rounded-lg border hover:border-amber-500" onclick="changeMainImage(this)">
+        </div>
+      </div>
+
+      <!-- Detalles del producto -->
+      <div class="lg:w-1/2">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Taza Terracota Artesanal</h1>
+
+        <div class="flex items-center mb-4">
+          <div class="flex text-amber-400">
+            <i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i><i data-feather="star"></i>
+          </div>
+          <span class="text-gray-500 ml-2">(38 reseñas)</span>
+        </div>
+
+        <p class="text-2xl font-semibold text-gray-900 mb-6">$38.900</p>
+
+        <p class="text-gray-700 mb-6">
+          Una taza de cerámica hecha a mano, perfecta para tu café o té. Combina tradición artesanal con un diseño moderno inspirado en los tonos cálidos de Cajicá.
+        </p>
+
+        <!-- Cantidad y botón -->
+        <div class="mb-8">
+          <div class="flex items-center mb-4">
+            <span class="text-gray-700 mr-4">Cantidad:</span>
+            <div class="flex items-center border rounded-lg overflow-hidden">
+              <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200" onclick="decreaseQuantity()">-</button>
+              <span id="quantity" class="px-4 py-1">1</span>
+              <button class="px-3 py-1 bg-gray-100 hover:bg-gray-200" onclick="increaseQuantity()">+</button>
+            </div>
+          </div>
+
+          <button class="w-full bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200">
+            Añadir al carrito
+          </button>
+        </div>
+
+        <!-- Especificaciones -->
+        <div class="border-t border-gray-200 pt-6 mb-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4">Especificaciones</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div><p class="text-sm text-gray-500">Material</p><p class="font-medium">Cerámica</p></div>
+            <div><p class="text-sm text-gray-500">Dimensiones</p><p class="font-medium">9cm x 8cm</p></div>
+            <div><p class="text-sm text-gray-500">Peso</p><p class="font-medium">0.3 kg</p></div>
+            <div><p class="text-sm text-gray-500">Fabricante</p><p class="font-medium">Artesanos de Cajicá</p></div>
+            <div><p class="text-sm text-gray-500">Garantía</p><p class="font-medium">6 meses</p></div>
+            <div><p class="text-sm text-gray-500">Color</p><p class="font-medium">Terracota natural</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-8">También te puede interesar</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1612178537198-5b49bce8c290?q=80&w=400" class="w-full h-48 object-cover" alt="Olla de acero">
+          <div class="p-4"><h3 class="font-medium text-gray-900 mb-1">Olla de acero</h3><p class="text-amber-600 font-medium">$149.900</p></div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=400" class="w-full h-48 object-cover" alt="Plato hondo cerámico">
+          <div class="p-4"><h3 class="font-medium text-gray-900 mb-1">Plato hondo cerámico</h3><p class="text-amber-600 font-medium">$39.900</p></div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1607532941433-304659e8198a?q=80&w=400" class="w-full h-48 object-cover" alt="Centro de mesa">
+          <div class="p-4"><h3 class="font-medium text-gray-900 mb-1">Centro de mesa artesanal</h3><p class="text-amber-600 font-medium">$89.900</p></div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
+          <img src="https://images.unsplash.com/photo-1615486363874-7682a3662f4a?q=80&w=400" class="w-full h-48 object-cover" alt="Espátula de madera">
+          <div class="p-4"><h3 class="font-medium text-gray-900 mb-1">Espátula de madera</h3><p class="text-amber-600 font-medium">$19.900</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ Footer igual que en el index -->
+  <custom-footer></custom-footer>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    feather.replace();
+    function changeMainImage(el) {
+      document.getElementById("mainImage").src = el.src;
+    }
+    function increaseQuantity() {
+      const q = document.getElementById("quantity");
+      q.textContent = parseInt(q.textContent) + 1;
+    }
+    function decreaseQuantity() {
+      const q = document.getElementById("quantity");
+      if (parseInt(q.textContent) > 1) q.textContent = parseInt(q.textContent) - 1;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('✅ Página de producto cargada correctamente');
+    });
+  </script>
+</body>
+</html>
