@@ -1,0 +1,27 @@
+/* Custom styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #d97706;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b45309;
+}
